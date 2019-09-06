@@ -8,23 +8,16 @@ class StudentsController < ApplicationController
   def show
     #before action
   end
-  
-  # def activate_student
-  # set_student
-  # @student.active ? @student.active = false : @student.active = true
-  # @student.save
-  # redirect_to student_path(@student)
-  # end
 
   def activate_student
-    set_student
-    if @student.active
+    set_student     #finds the student
+    if @student.active   #sets active studnt to inactive (dflt false)
       @student.active = false
     else
-      @student.active = true
+      @student.active = true #sets inactive student to active
     end
     @student.save
-    redirect_to student_path(@student)
+    redirect_to student_path(@student) #student show page
   end 
 
   private
